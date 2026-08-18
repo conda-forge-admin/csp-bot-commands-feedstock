@@ -1,6 +1,7 @@
 context:
   name: csp-bot-commands
   version: "2.0.0"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -22,15 +23,17 @@ requirements:
     - hatchling
   run:
     - python >=${{ python_min }}
-    - csp-bot >=1,<2
+    - chatom >=0.2.0
+    - csp-bot >=2,<3
 
 tests:
   - python:
       imports:
         - csp_bot_commands
       pip_check: true
-      python_version: ${{ python_min }}.*
-
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 about:
   license: Apache-2.0
   license_file: LICENSE
